@@ -1261,7 +1261,7 @@ ul li a:focus {
   .label-outline.label-default,
   .alert-outline.alert-default {
     border: 1px solid #ddd !important;
-    background: none !important;
+    background: #EEE !important;
     color: #857E7E !important;
   }
 
