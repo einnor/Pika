@@ -27,7 +27,7 @@
 
         <div class="container">
 
-          <form class="form-signin">
+          <form class="form-signin" method="post">
             <div class="panel periodic-login">
                 <div class="panel-body text-center">
 
@@ -41,6 +41,16 @@
                         <div class="col-md-10 col-sm-10">
                           <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
                           <p><strong>Error!</strong> Invalid email/password :-(</p>
+                        </div>
+                      </div>
+
+                      <!-- Alert Warning -->
+                      <div class="alert alert-warning col-md-12 col-sm-12 alert-icon alert-dismissible fade in hidden" role="alert">
+                        <div class="col-md-2 col-sm-2 icon-wrapper text-center">
+                          <span class="fa fa-exclamation-triangle fa-2x"></span></div>
+                        <div class="col-md-10 col-sm-10">
+                          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                          <p><strong>Oops!</strong> Something went wrong. Please try again later.</p>
                         </div>
                       </div>
 
@@ -69,7 +79,7 @@
                     <label class="pull-left">
                     <input type="checkbox" class="icheck pull-left" name="checkbox1"/> Remember me
                     </label>
-                    <input type="submit" class="btn col-md-12" value="SignIn"/>
+                    <input type="submit" class="btn col-md-12" value="LOGIN"/>
                 </div>
                   <div class="text-center" style="padding:5px;">
                       <a href="forgotpass.html">Forgot Password </a>
@@ -102,6 +112,5 @@
           });
          });
        </script>
-       <!-- end: Javascript -->
      </body>
    </html>
