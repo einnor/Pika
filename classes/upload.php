@@ -6,7 +6,7 @@
 		$ret = array();
 		$error = $_FILES["mfile"]["error"];
 		$fileName = $_FILES["mfile"]["name"];
-		if ($ImageSize>10000000){die(json_encode(array("jquery-upload-file-error"=>'You require an image with a size of NOT more that 10MB. Your Image is Larger');}
+		// if ($ImageSize>10000000){die(json_encode(array("jquery-upload-file-error"=>'You require an image with a size of NOT more that 10MB. Your Image is Larger');}
 		$U_path=$location;
 
 		if (!file_exists($U_path)) {
