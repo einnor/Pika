@@ -103,6 +103,10 @@
 					$_SESSION['user_id'] = $userid;
 					$_SESSION['username']	= $reqdata->names;
 					$_SESSION['cover'] = $reqdata->cover;
+
+					include_once('../classes/sendemail.php');
+					$signupEmail = new Sendemail;
+					$signupEmail->signupEmail($reqdata->email,$reqdata->names);
 				}
 			}catch(PDOException $e){
 				$marray['response'] = 'error';
