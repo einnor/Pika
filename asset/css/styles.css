@@ -2689,7 +2689,7 @@ ul li a:focus {
   margin-top: 51px;
   padding: 0px;
   padding-bottom: 10px;
-  padding-left: 230px;
+  /*padding-left: 230px;*/
   width: 100%;
   color: #918C8C;
 }
@@ -6272,7 +6272,7 @@ ul li a:focus {
 /*========Responsive========*/
 @media (max-width: 1200px) {
   #content{
-    padding-left: 230px;
+    /*padding-left: 230px;*/
     padding-right: 0px
   }
   .profile-v1 .profile-v1-cover{margin-bottom: 0px !important;min-height: inherit !important;max-height: inherit !important;}
