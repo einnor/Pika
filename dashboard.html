@@ -229,12 +229,18 @@
 
 			<script src="asset/js/plugins/moment.min.js"></script>
 			<script src="asset/js/plugins/jquery.nicescroll.js"></script>
+			<script src="asset/js/plugins/jquery.datatables.min.js"></script>
+			<script src="asset/js/plugins/datatables.bootstrap.min.js"></script>
 
 			<!-- custom -->
 			<script src="asset/js/extensions.js"></script>
 			<script src="asset/js/newcommon.js"></script>
-			<!-- <script src="asset/js/main.js"></script> -->
 			<script src="asset/js/dashboard.js"></script>
+			<script type="text/javascript">
+			  $(document).ready(function(){
+			    $('#datatables-example').DataTable();
+			  });
+			</script>
     	<script type="text/javascript">
 				// 	if (getCookie('theuser')==='GUEST' ||  getCookie('theuser') ===''){ window.location.replace('login.html'); }
      	</script>
