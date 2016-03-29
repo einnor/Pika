@@ -131,7 +131,7 @@
 		$pdo = getConnection();
 		$marray = array();
 		try{
-			$ss="SELECT id, course, name, cover, cuisine,FORMAT(preptime, 2) AS preptime, servings, serving_type, texture, tags, price, approval FROM recipe WHERE approval=0 AND userid=?";
+			$ss="SELECT id, course, name, cover, cuisine,FORMAT(preptime, 2) AS preptime, servings, serving_type, texture, tags, price, approval, thedate FROM recipe WHERE userid=?";
 			$stmt = $pdo->prepare($ss);
 			$stmt->execute(array($id));
 			$resp = array();
