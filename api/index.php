@@ -10,7 +10,8 @@
 	$app->post('/users/signup','signup');
 	$app->post('/users/logout','logout');
 
-	/******************************************************************/ //
+	/******************************************************************/ //Author Profile
+	$app->get('/authors/:id/recipes','getAuthorRecipes');
 
 	//trait_exists
 	$app->get('/test','test');
@@ -126,15 +127,40 @@
 		unset($_SESSION['cover']);
 	};//Logout
 
+	function getAuthorRecipes($id){
+		$pdo = getConnection();
+		$marray = array();
+		try{
+			$ss="SELECT id, course, name, cover, cuisine,FORMAT(preptime, 2) AS preptime, servings, serving_type, texture, tags, price, approval FROM recipe WHERE approval=0 AND userid=?";
+			$stmt = $pdo->prepare($ss);
+			$stmt->execute(array($id));
+			$resp = array();
+			while($row = $stmt->fetch(PDO::FETCH_OBJ)) {
+				$resp[] = $row;
+			}
+			$marray['response']=$resp;
+		}catch(PDOException $e){
+			$marray['response']="error";
+			$marray['error'] = 'Code 9002: '.$e->getMessage();
+		}
+		echo json_encode($marray);
+		return true;
+	};//getAuthorRecipes
+
 	function test(){$pdo = getConnection();
 		try{
 			$ss="SELECT * FROM kitchen";
-			$stmt = $pdo->prepare($ss);$stmt->execute(array());$resp=array();
+			$stmt = $pdo->prepare($ss);
+			$stmt->execute(array());
+			$resp=array();
 			while($row = $stmt->fetch(PDO::FETCH_OBJ)) {
 				$resp[]=$row;
 			}
 			$marray['response']=$resp;
-		}catch(PDOException $e){$marray['response']="error";$marray['errorNumber']="";$marray['errorMessage']=$e->getMessage();}
+		}catch(PDOException $e){
+			$marray['response']="error";
+			$marray['error'] = 'Code 900: '.$e->getMessage();
+		}
 		echo json_encode($marray);
 		return true;
 	};//test
