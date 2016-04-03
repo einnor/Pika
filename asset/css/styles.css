@@ -6484,3 +6484,7 @@ ul li a:focus {
   }
 
 }
+
+/*DDM*/
+.ddm_loader { position: absolute;width:250px;}
+#recipe ul li a{font-size:12px !important;color:#888 !important;}

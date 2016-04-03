@@ -13,6 +13,8 @@
 	/******************************************************************/ //Author Profile
 	$app->get('/authors/:id/recipes','getAuthorRecipes');
 
+	$app->delete('/recipes/:id/delete','deleteRecipe');
+
 	//trait_exists
 	$app->get('/test','test');
 
@@ -141,15 +143,32 @@
 			$marray['response']=$resp;
 		}catch(PDOException $e){
 			$marray['response']="error";
-			$marray['error'] = 'Code 9002: '.$e->getMessage();
+			$marray['error'] = 'Code 9003: '.$e->getMessage();
 		}
 		echo json_encode($marray);
 		return true;
 	};//getAuthorRecipes
 
-	function test(){$pdo = getConnection();
+	function deleteRecipe($id){
+		$pdo = getConnection();
+		$marray = array();
 		try{
-			$ss="SELECT * FROM kitchen";
+			$ss = "DELETE FROM recipe WHERE id=?";
+			$stmt = $pdo->prepare($ss);
+			$stmt->execute(array($id));
+			$marray['response'] = 'success';
+		}catch(PDOException $e){
+			$marray['response'] = "error";
+			$marray['error'] = 'Code 9004: '.$e->getMessage();
+		}
+		echo json_encode($marray);
+		return true;
+	};//deleteRecipe
+
+	function test(){$pdo = getConnection();
+		$marray = array();
+		try{
+			$ss="SELECT * FROM users";
 			$stmt = $pdo->prepare($ss);
 			$stmt->execute(array());
 			$resp=array();
